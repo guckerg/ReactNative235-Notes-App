@@ -44,7 +44,8 @@ const NoteScreen = () => {
     setModalVisible(false);
   };
 
-  const deleteNote = async () => {
+  const deleteNote = async (id) => {
+    console.log("deleting");
     Alert.alert("delete note", "are you sure", [
       {
         text: "Cancel",
@@ -54,6 +55,7 @@ const NoteScreen = () => {
         text: "Delete",
         style: "destructive",
         onPress: async () => {
+          console.log("inside onPress");
           const response = await noteService.deleteNote(id);
           if (response.error) {
             Alert.alert("error", response.error);
@@ -63,6 +65,7 @@ const NoteScreen = () => {
         },
       },
     ]);
+    console.log("after alert");
   };
 
   return (

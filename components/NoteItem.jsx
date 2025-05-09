@@ -4,7 +4,12 @@ const NoteItem = ({ note, onDelete }) => {
   return (
     <View style={styles.noteItem}>
       <Text style={styles.noteText}> {note.text} </Text>
-      <TouchableOpacity onPress={() => onDelete(note.$id)}>
+      <TouchableOpacity
+        onPress={() => {
+          onDelete(note.$id);
+          console.log("pressed");
+        }}
+      >
         <Text>DELETE</Text>
       </TouchableOpacity>
     </View>
